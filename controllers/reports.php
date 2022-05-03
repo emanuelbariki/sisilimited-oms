@@ -27,6 +27,11 @@
 			$to				= $_POST['search']['todate'];
 		}
 
+		if ($_SESSION['member']['clientdetails']) {
+			$clientid = $_SESSION['member']['clientdetails']['id'];
+		}
+		// debug($_SESSION['member']);
+
 		// Filter Reports here..
 		$allpayments = $Payments->paymentReport($orderno,
 										$paymentid,

@@ -57,11 +57,25 @@
                                     <div class="btn-group dropdown">
                                         <a href="javascript: void(0);" class="table-action-btn dropdown-toggle arrow-none btn btn-light btn-sm" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-horizontal"></i></a>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" target="_blank" href="?module=tickets&action=list&orderid=<?=$R['id']?>"><i class="mdi mdi-cash-usd-outline mr-2 font-18 text-muted vertical-middle"></i>Work</a>
+                                            <?
+                                                if ($_SESSION['member']['clientdetails'] == NULL) {?>
+                                                    <a class="dropdown-item" target="_blank" href="?module=tickets&action=list&orderid=<?=$R['id']?>"><i class="mdi mdi-cash-usd-outline mr-2 font-18 text-muted vertical-middle"></i>Work</a>
+                                                <?}
+                                            ?>
                                             <a class="dropdown-item" target="_blank" href="?module=orders&action=view&id=<?= base64_encode($R['id'])?>"><i class="mdi mdi-check-all mr-2 text-muted font-18 vertical-middle"></i>View Order</a>
-                                            <a class="dropdown-item" href="?module=orders&action=index&orderid=<?= $R['id']?>"><i class="mdi mdi-pencil mr-2 text-muted font-18 vertical-middle"></i>Edit Order</a>
+                                            
+                                            <?
+                                                if ($_SESSION['member']['clientdetails'] == NULL) {?>
+                                                     <a class="dropdown-item" href="?module=orders&action=index&orderid=<?= $R['id']?>"><i class="mdi mdi-pencil mr-2 text-muted font-18 vertical-middle"></i>Edit Order</a>
+                                                <?}
+                                            ?>
                                             <a class="dropdown-item" target="_blank" href="?module=orders&action=invoice&id=<?= $R['id']?>"><i class="mdi mdi-cash-marker mr-2 text-muted font-18 vertical-middle"></i>Generate Invoice</a>
-                                            <a class="dropdown-item text-danger" href="?module=leads&action=delete&id=<?= $R['id']?>"><i class="mdi mdi-delete mr-2 text-danger font-18 vertical-middle"></i>Remove</a>
+                                            <?
+                                                if ($_SESSION['member']['clientdetails'] == NULL) {?>
+                                                     <a class="dropdown-item text-danger" href="?module=leads&action=delete&id=<?= $R['id']?>"><i class="mdi mdi-delete mr-2 text-danger font-18 vertical-middle"></i>Remove</a>
+                                                <?}
+                                            ?>
+                                            
                                         </div>
                                     </div>
                                 </td>

@@ -41,7 +41,12 @@
 
 
     if ($action == 'list') {
-        $alloders = $Orders->getAllOrders();
+        // debug($_SESSION['member']);
+        if ($_SESSION['member']['clientdetails']) {
+            $alloders = $Orders->getAllOrders($orderid="", $ordertype="", $_SESSION['member']['clientdetails']['id'], $eta="", $etd="", $userid="");
+        }else{
+            $alloders = $Orders->getAllOrders();
+        }
         $tData['allorders'] = $alloders;
         // debug($alloders);
         $data['content'] = loadTemplate('orders-list.tpl.php',$tData);
