@@ -70,6 +70,17 @@
                                     </div>
 
                                     <div class="form-group mb-3">
+                                        <label for="password">Login Type</label>
+                                        <div class="input-group input-group-merge">
+                                            <select name="logintype" class="form-control">
+                                                <option selected disabled>-- Select --</option>
+                                                <option value="client">SISI Limited Client</option>
+                                                <option value="staff">SISI Limited Staff</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group mb-3">
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="checkbox-signin" checked>
                                             <label class="custom-control-label" for="checkbox-signin">Remember me</label>
