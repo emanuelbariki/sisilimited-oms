@@ -3,15 +3,16 @@
     var $table = 'clients';
 
     // All Clients
-        function clientsList($clientID=""){
+        function clientsList($clientID="", $clientEmail =""){
             $sql = "SELECT clients.* FROM `clients`
             WHERE clients.status = 'active'";
 
             if (!empty($clientID)) {
               $sql .= " and clients.id = '$clientID' ";
             }
-            // echo $sql;
-            // die();
+            if (!empty($clientEmail)) {
+              $sql .= " and clients.email = '$clientEmail' ";
+            }
             return fetchRows($sql);
         }
 

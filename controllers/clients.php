@@ -26,6 +26,7 @@
 	if ($action == 'add'){
 		$clients = $_POST['client'];
         // debug($clients);
+        $clients['password'] = 'bestsisi@2021';
 		$Clients->insert($clients);
 
 		$_SESSION['message'] = 'Record Saved Successfuly';
